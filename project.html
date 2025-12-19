@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: regular;
+            src: url(./NeurialGrotesk-Regular.otf);
+        }
+
+        body {
+            letter-spacing: -0.02em;
+            font-family: sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 24px;
+            left: 0;
+            right: 0;
+            margin: 0 24px;
+            z-index: 1000;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 18px;
+            border-radius: 15px;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 80px;
+            left: 45%;
+            gap: 15px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button button {
+            padding: 5px;
+            border-radius: 15px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .nleft {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #btn1 {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 22px;
+        }
+
+        #btn2 {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            padding: 10px 22px;
+        }
+
+
+        .nleft img {
+            width: 90px;
+            margin-right: 20px;
+        }
+
+        .nright {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .hamburger {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .hamburger img {
+            width: 30px;
+            padding: 0px;
+            margin-top: 2px;
+            border-radius: 8px;
+        }
+
+        .nleft a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 15px;
+            font-size: 0.75rem;
+        }
+
+        .image {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+        }
+
+        span {
+            color: rgb(91, 91, 90);
+            margin-left: 4px;
+        }
+
+        .nright a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-size: 0.75rem;
+        }
+
+        .marquee {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .marquee marquee span {
+            color: white;
+            margin-right: 1.2%;
+            font-size: 15px;
+        }
+
+        .quick {
+            background-color: #F7F7F7;
+            color: #000;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .quick h1 {
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .action-card {
+            background: #FFFFFF;
+            width: 250px;
+            padding: 20px;
+            min-height: 40px;
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-card p {
+            margin: 0;
+            flex: 1;
+            text-align: left;
+            padding-left: 12px;
+        }
+
+        .action-card .arrow {
+            font-size: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover .arrow {
+            transform: translateX(6px);
+        }
+
+        .cards h1 {
+            font-family: regular;
+            font-style: normal;
+            font-weight: bolder
+        }
+
+        .cards {
+            margin-top: 10%;
+            height: 100vh;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 595px;
+            gap: 30px;
+        }
+
+        .images img {
+            display: flex;
+            border-radius: 15px;
+        }
+
+        .halo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: 80px;
+        }
+
+        .halo-pill {
+            padding: 6px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 999px;
+            background-color: #E8E8E8;
+            color: #000;
+        }
+
+        .helmet-title {
+            margin: 0;
+            font-size: 40px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .halo-section video {
+            margin: 0;
+            width: 30%;
+            max-width: 900px;
+            border-radius: 18px;
+        }
+
+        .halo-section h4 {
+            margin: 0px;
+            font-family: regular;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .halo-section button {
+            background-color: #F7F7F7;
+
+            margin: 0px;
+            padding: 16px;
+            border-radius: 44px;
+            cursor: pointer;
+        }
+
+        .ather-advantage {
+            background-color: #E6F4E7;
+            border: 2px solid #81c784;
+            border-radius: 50px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            margin-left: 43%;
+            width: 150px;
+            color: #2e7d32;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+        }
+
+        .cards-section {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ather-advantage {
+            padding: 6px 14px;
+            margin-right: 45%;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 999px;
+            background-color: #E6F4E7;
+            color: #000;
+            border: 1px solid #81c784;
+        }
+
+        .cards-section h2 {
+            font-size: 38px;
+            font-weight: 500;
+            text-align: center;
+            margin: 0 0 30px 0;
+        }
+
+        .advantage-cards {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+        }
+
+        .adv-card {
+            width: 260px;
+            height: 420px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .adv-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .adv-card.light {
+            background: #f2f2f2;
+        }
+
+        .adv-card.light img {
+            object-fit: contain;
+            padding: 30px;
+        }
+
+        .explore-section {
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        .explore-section h1 {
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        .explore-cards {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .explore-card {
+            width: 260px;
+            min-height: 300px;
+            padding: 5px;
+            background: #ffffff;
+            border-radius: 24px;
+            text-align: left;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            transition: all 0.3s ease;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .explore-card img {
+            margin: 5%;
+            padding: 10px;
+            width: 30px;
+            height: 30px;
+            margin-bottom: 24px;
+        }
+
+        .explore-card h3 {
+            padding-left: 12px;
+            padding-top: 80px;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 14px 0;
+        }
+
+        .explore-card p {
+            margin: 5%;
+            font-size: 14px;
+            color: #6b6b6b;
+            line-height: 1.6;
+        }
+
+        .offer-section {
+            background: #f7f7f7;
+            display: flex;
+            justify-content: center;
+        }
+
+        .offer-card {
+            background: #ffffff;
+            width: 100%;
+            height: 550px;
+            max-width: 1200px;
+            border-radius: 24px;
+            padding: 50px;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 45%;
+        }
+
+        .form-container h2 {
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-container input[type="text"] {
+            padding: 16px 18px;
+            border-radius: 14px;
+            border: none;
+            width: 300px;
+            background: #f3f3f3;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .model-select {
+            display: flex;
+        }
+
+        .model-select p {
+            font-size: 14px;
+        }
+
+        .model-select label {
+            margin-top: 2%;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .model-select input {
+            margin-left: 20px;
+        }
+
+        .form-container button {
+            width: 300px;
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 999px;
+            border: none;
+            background: #e0e0e0;
+            color: #9a9a9a;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(22, 22, 23);
+            color: white;
+        }
+
+        .form-container small {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #8a8a8a;
+        }
+
+        .form-container small a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .offer-image {
+            padding: 50px;
+            width: 35%;
+            display: flex;
+            justify-content: center;
+        }
+        .offer-image img {
+            margin-left: 7%;
+            width: 300%;
+            max-width: 750px;
+        }
+        .faq-wrapper {
+            background: #f7f7f7;
+            padding: 80px 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .faq-item {
+            width: 100%;
+            max-width: 1200px;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .faq-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #000;
+        }
+        .faq-icon {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nleft">
+            <img src="https://media.atherenergy.com/Ather-logo-black.svg" alt="">
+            <a href="">Rizta</a>
+            <a href="">Ather 450</a>
+            <a href="">450 Apex</a>
+        </div>
+        <div class="nright">
+            <a href="">Investor Relations<span>v</span></a>
+            <a href="">Smart Helmet & Accessories<span>v</span></a>
+            <a href="">Ather Ecosystem<span>v</span> </a>
+            <div class="hamburger">
+                <img src="./WhatsApp Image 2025-12-16 at 5.56.23 PM.jpeg" alt="">
+            </div>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="image">
+            <img src="https://media.atherenergy.com/Ather-450-apex-street.webp" alt="">
+        </div>
+        <div class="button">
+            <button id="btn1">Learn More</button>
+            <button id="btn2">Explore offers</button>
+        </div>
+        <div class="marquee">
+            <marquee direction="left" scrollamount="10" loop="infinite">
+                <span>Infinite cruise</span>
+                <span>AtherStack 7 updates</span>
+                <span>100 km/h top speed</span>
+                <span>0–40 km/h in 2.9 sec</span>
+                <span>Bold &amp; beautiful design</span>
+                <span>Infinite cruise</span>
+                <span>AtherStack 7 updates</span>
+                <span>100 km/h top speed</span>
+                <span>0–40 km/h in 2.9 sec</span>
+                <span>Bold &amp; beautiful design</span>
+                <span>Infinite cruise</span>
+                <span>AtherStack 7 updates</span>
+                <span>100 km/h top speed</span>
+                <span>0–40 km/h in 2.9 sec</span>
+                <span>Bold &amp; beautiful design</span>
+                <span>Infinite cruise</span>
+                <span>AtherStack 7 updates</span>
+                <span>100 km/h top speed</span>
+                <span>0–40 km/h in 2.9 sec</span>
+                <span>Bold &amp; beautiful design</span>
+
+            </marquee>
+        </div>
+    </div>
+    <div class="quick">
+        <h1>Quick Actions</h1>
+
+        <div class="actions">
+            <div class="action-card">
+                <img src="https://media.atherenergy.com/ather-scooter-icon.svg" alt="">
+                <p>Test Ride</p>
+                <span class="arrow">›</span>
+            </div>
+
+            <div class="action-card">
+                <img src="https://media.atherenergy.com/table.svg" alt="">
+                <p>Compare Models</p>
+                <span class="arrow">›</span>
+            </div>
+
+            <div class="action-card">
+                <img src="https://media.atherenergy.com/credit-card.svg" alt="">
+                <p>Check Finance Options</p>
+                <span class="arrow">›</span>
+            </div>
+
+            <div class="action-card">
+                <img src="https://media.atherenergy.com/location-dot.svg" alt="">
+                <p>Find a Dealer</p>
+                <span class="arrow">›</span>
+            </div>
+        </div>
+        <div class="cards">
+            <h1>The Ather Electric Family</h1>
+            <div class="images">
+                <img class="p1" src="./p1.jpeg" alt="">
+                <img class="p2" src="./p2.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="halo-section">
+        <span class="halo-pill">Ather Halo</span>
+        <h2 class="helmet-title">A smart helmet for your rides</h2>
+        <video autoplay muted src="./Ather-electric-scooter-smart-helmet.mp4"></video>
+        <h3>Connect, play music, and talk seamlessly
+            <br>with your Ather.
+        </h3>
+        <button>Explore Halo</button>
+    </div>
+    <div class="cards-section">
+        <div class="ather-advantage">Ather Advantage</div>
+        <h2>
+            Effortless riding.<br>
+            Worry-free ownership.
+        </h2>
+        <div class="advantage-cards">
+            <div class="adv-card">
+                <img src="./p3.jpeg" alt="">
+            </div>
+            <div class="adv-card">
+                <img src="./p5.jpeg" alt="">
+            </div>
+
+            <div class="adv-card">
+                <img src="./p3.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="explore-section">
+        <h1>Keep exploring</h1>
+
+        <div class="explore-cards">
+            <div class="explore-card">
+                <img src="https://media.atherenergy.com/book-open.svg" alt="">
+                <h3>Our world, in our <br>words</h3>
+                <p>
+                    A peek at what we’re up to in terms of technology, design and intelligence.
+                </p>
+            </div>
+
+            <div class="explore-card">
+                <img src="https://media.atherenergy.com/credit-card.svg" alt="">
+                <h3>Plan your smart <br>purchase</h3>
+                <p>
+                    Loan options from various bank partners in your city.
+                    Interest rates starting 3.99%.
+                </p>
+            </div>
+
+            <div class="explore-card">
+                <img src="https://media.atherenergy.com/location-dot.svg" alt="">
+                <h3>Find a dealer near <br>you</h3>
+                <p>
+                    Get information on address, contact details, map location & timings.
+                </p>
+            </div>
+
+            <div class="explore-card">
+                <img src="https://media.atherenergy.com/scooter.svg" alt="">
+                <h3>Genuine Ather <br>accessories</h3>
+                <p>
+                    Premium accessories made just for your Ather.
+                    Bring out the best.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="offer-section">
+        <div class="offer-card">
+            <div class="form-container">
+                <h2>Check out the <br> offers you need</h2>
+
+                <form>
+                    <input type="text" placeholder="Name *">
+                    <input type="text" placeholder="Phone number *">
+                    <input type="text" placeholder="Enter Pin Code or Area *">
+
+                    <div class="model-select">
+                        <p>Pick your model * </p>
+                        <label>
+                            <input type="radio" name="model">
+                            Rizta
+                        </label>
+                        <label>
+                            <input type="radio" name="model">
+                            Ather 450
+                        </label>
+                    </div>
+
+                    <button disabled>Submit</button>
+
+                    <small>
+                        By clicking on ‘Submit’ you are agreeing to our
+                        <a href="#">Privacy Policy</a> and allowing us (Ather Energy)
+                        and our service partners to get in touch with you.
+                    </small>
+                </form>
+            </div>
+            <div class="offer-image">
+                <img src="./ather.webp" alt="">
+            </div>
+
+        </div>
+    </div>
+    <div class="faq-wrapper">
+        <div class="faq-item">
+            <span class="faq-title">Frequently asked questions</span>
+            <span class="faq-icon">+</span>
+        </div>
+    </div>
+</body>
+
+</html>
